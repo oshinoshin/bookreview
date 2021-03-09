@@ -1,24 +1,39 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column     | Type    | Options   |
+| ---------- | ------- | --------- |
+| email      | string  | NOT NULL  |
+| password   | string  | NOT NULL  |
+| name       | string  | NOT NULL  |
+| profile    | text    | NOT NULL  | 
 
-Things you may want to cover:
+### Association
+- has_many :books
+- has_many :comments
 
-* Ruby version
 
-* System dependencies
+## books テーブル
 
-* Configuration
+| Column     | Type      | Options                    |
+| ---------- | --------- | -------------------------- |
+| title      | text      | NOT NULL                   |
+| concept    | text      | NOT NULL                   |
+| image      | image     |                            | 
+| user       | reference | foreign_key: true          | 
 
-* Database creation
+### Association
+- has_many   :comments
+- belongs_to :user
 
-* Database initialization
 
-* How to run the test suite
+## comments テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column     | Type      | Options                    |
+| ---------- | --------- | -------------------------- |
+| text       | text      | NOT NULL                   |
+| user       | reference | foreign_key: true          |
+| book       | reference | foreign_key: true          |
 
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :book
+- belongs_to :user

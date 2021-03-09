@@ -8,7 +8,9 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-<header class="header">
+  
+  <body>
+    <header class="header">
       <div class="header__bar row">
         <h1 class="grid-6"><a href="/">BookReview</a></h1>
         <% if user_signed_in? %>
@@ -23,7 +25,7 @@
           </div>
         <% end %>
       </div>
-  <body>
+    </header>
     <%= yield %>
   </body>
 </html>

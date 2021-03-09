@@ -17,7 +17,7 @@
 | Column     | Type      | Options                    |
 | ---------- | --------- | -------------------------- |
 | title      | text      | NOT NULL                   |
-| concept    | text      | NOT NULL                   |
+| review     | text      | NOT NULL                   |
 | image      | image     |                            | 
 | user       | reference | foreign_key: true          | 
 

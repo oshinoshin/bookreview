@@ -1,0 +1,9 @@
+<%= @book.title%> 
+<br><%= image_tag @book.image%> <br/>
+
+<% if user_signed_in? && current_user.id == @book.user_id %>
+  <div class="book__manage">
+    <%= link_to "編集する", edit_book_path, class: :prototype__btn %>
+    <%= link_to "削除する", "#", method: :delete, class: :prototype__btn %>
+  </div>
+<% end %>

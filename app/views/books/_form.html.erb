@@ -1,0 +1,20 @@
+<%= form_with(model: @book, local: true) do |form| %>
+      <div class="field">
+        <%= form.label :title, "本のタイトル" %><br/>
+        <%= form.text_field :title, placeholder: "Title" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :image, "画像" %><br/>
+        <%= form.file_field :image %>
+      </div>
+
+      <div class="field">
+        <%= form.label :review, "レビュー" %><br/>
+        <%= form.text_area :review, placeholder: "Review", rows: "10" %>
+      </div>
+        
+      <div class="actions">
+        <%= form.submit "投稿する" %>
+      </div>
+<% end %>

@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, only:[:new, :edit, :destroy]
+  before_action :set_book, only:[:show, :edit, :update, :destroy]
   
   def index
-    @books = Book.all
+    @books = Book.all.order("created_at DESC")
   end
 
   def new
@@ -19,15 +20,12 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
   end
 
   def edit
-    @book = Book.find(params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to root_path
     else
@@ -36,7 +34,6 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:id])
     @book.destroy
     redirect_to root_path
   end
@@ -45,6 +42,10 @@ class BooksController < ApplicationController
   private
   def book_params
     params.require(:book).permit(:title, :image, :review).merge(user_id: current_user.id)
+  end
+
+  def set_book
+    @book = Book.find(params[:id])
   end
 
 end

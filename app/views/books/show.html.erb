@@ -1,5 +1,6 @@
 <%= @book.title%> 
 <br><%= image_tag @book.image%> <br/>
+<br><%= @book.review%> <br/>
 
 <% if user_signed_in? && current_user.id == @book.user_id %>
   <div class="book__manage">

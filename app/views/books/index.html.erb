@@ -1,3 +1,29 @@
+      <header class="header">
+        <div class="header__bar row">
+          <h1 class="grid-6">BookReview</h1>
+          <% if user_signed_in? %>
+            <div class="user_nav grid-6">
+              <span><%= current_user.name %>
+                <ul class="user__info">
+                  <li>
+                    <%= link_to "マイページ", user_path(current_user.id) %>
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                  </li>
+                </ul>
+              </span>
+              <%= link_to "投稿する", new_book_path, class: "post" %>
+            </div>
+          <% else %>
+            <div class="grid-6">
+              <br>
+                <%= link_to "ログイン", new_user_session_path, class: "post" %>
+                <%= link_to "新規登録",  new_user_registration_path, class: "post" %>
+                <br/>
+            </div>
+          <% end %>
+      </header>
+
+
 <div class="card">
   <% @books.each do |book| %>
     <div class="card__body">
@@ -10,3 +36,4 @@
     <%= link_to "by #{book.user.name}", user_path(book.user_id), class: :card__user %>
   <% end %>
 </div>
+

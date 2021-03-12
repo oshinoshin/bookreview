@@ -5,6 +5,27 @@
 <% if user_signed_in? && current_user.id == @book.user_id %>
   <div class="book__manage">
     <%= link_to "編集する", edit_book_path, class: :prototype__btn %>
-    <%= link_to "削除する", "#", method: :delete, class: :prototype__btn %>
+    <%= link_to "削除する", book_path(@book.id), method: :delete, class: :prototype__btn %>
   </div>
 <% end %>
+
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@book, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.submit "SEND" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+  </div>
+
+  <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.name, user_path %>：</strong>
+          <%= comment.text %>
+        </p>
+      <% end %>
+    </div>

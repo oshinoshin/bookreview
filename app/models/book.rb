@@ -5,7 +5,7 @@ class Book < ApplicationRecord
     validates :review
   end
 
-  has_many   :comments
+  has_many   :comments, dependent: :destroy
   belongs_to :user
   has_one_attached :image
   

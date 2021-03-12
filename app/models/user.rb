@@ -11,8 +11,8 @@ class User < ApplicationRecord
     validates :profile
   end
 
-  has_many :books
-  has_many :comments
+  has_many :books, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one_attached :image
 
 end

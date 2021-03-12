@@ -1,12 +1,12 @@
 <div class="card">
   <% @books.each do |book| %>
-    <%= link_to image_tag(book.image, class: :card__img ), book_path(book.id) %> 
     <div class="card__body">
       <%= link_to book.title, book_path(book.id), class: :card__title %>
-        <p class="card__summary">
-          <%= book.review %>
-        </p>
-      <%= link_to "by #{book.user.name}","#", class: :card__user %>
     </div>
+    <%= link_to image_tag(book.image.variant(resize: '500x500'), class: :card__img ), book_path(book.id) %> 
+      <p class="card__summary">
+        <%= book.review %>
+      </p>
+    <%= link_to "by #{book.user.name}", user_path(book.user_id), class: :card__user %>
   <% end %>
 </div>

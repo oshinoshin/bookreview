@@ -1,0 +1,10 @@
+<div class="contents row">
+  <p><%= @name %>さんの読んだ本一覧</p>
+  <% @books.each do |book| %>
+    <div class="content_post">
+      <p><%= book.title %></p>
+      <br><%= image_tag book.image.variant(resize: '500x500') %><br/>
+      <br><%= book.review %><br/>
+    </div>
+  <% end %>
+</div>

@@ -1,5 +1,5 @@
 <%= @book.title%> 
-<br><%= image_tag @book.image%> <br/>
+<br><%= image_tag @book.image.variant(resize: '500x500')%> <br/>
 <br><%= @book.review%> <br/>
 
 <% if user_signed_in? && current_user.id == @book.user_id %>

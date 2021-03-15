@@ -1,39 +1,62 @@
-      <header class="header">
-        <div class="header__bar row">
-          <h1 class="grid-6">BookReview</h1>
-          <% if user_signed_in? %>
-            <div class="user_nav grid-6">
-              <span><%= current_user.name %>
-                <ul class="user__info">
-                  <li>
-                    <%= link_to "マイページ", user_path(current_user.id) %>
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                  </li>
-                </ul>
-              </span>
-              <%= link_to "投稿する", new_book_path, class: "post" %>
-            </div>
-          <% else %>
-            <div class="grid-6">
-              <br>
-                <%= link_to "ログイン", new_user_session_path, class: "post" %>
-                <%= link_to "新規登録",  new_user_registration_path, class: "post" %>
-                <br/>
-            </div>
-          <% end %>
-      </header>
+<%= render "shared/header" %> 
+<div class='main'>
 
-
-<div class="card">
-  <% @books.each do |book| %>
-    <div class="card__body">
-      <%= link_to book.title, book_path(book.id), class: :card__title %>
+  <%# スライドショー %>
+  <div class = "slideshow">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/sample1.jpg" class="d-block w-100" alt="" width="200" height="300">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/sample2.jpg" class="d-block w-100" alt="" width="200" height="300">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/sample3.jpg" class="d-block w-100" alt="" width="200" height="300">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <%= link_to image_tag(book.image.variant(resize: '500x500'), class: :card__img ), book_path(book.id) %> 
-      <p class="card__summary">
-        <%= book.review %>
-      </p>
-    <%= link_to "by #{book.user.name}", user_path(book.user_id), class: :card__user %>
-  <% end %>
+  </div>
+  <%# スライドショー %>
+
+  <%# レビューの表示 %>
+  <div class="card">
+    <h1>最新の要約</h1>
+    <% @books.each do |book| %>
+      <div class="card__body">
+        <%= link_to book.title, book_path(book.id), class: :card__title %>
+      </div>
+      <%= link_to image_tag(book.image.variant(resize: '500x500'), class: :card__img ), book_path(book.id) %> 
+        <p class="card__summary">
+          <%= book.review %>
+        </p>
+      <%= link_to "by #{book.user.name}", user_path(book.user_id), class: :card__user %>
+    <% end %>
+  </div>
+  <%# レビューの表示 %>
+
 </div>
+<%= render "shared/footer" %> 
 

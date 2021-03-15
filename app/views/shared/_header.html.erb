@@ -10,8 +10,9 @@
               <span><%= current_user.name %>
                 <ul class="user__info">
                   <li>
-                    <%= link_to "マイページ", user_path(current_user.id) %>
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                    <%= link_to "マイページ", user_path(current_user.id),
+                    class: "btn btn-default" %>
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete  ,class: "btn btn-default"%>
                   </li>
                 </ul>
               </span>
@@ -20,8 +21,8 @@
           <% else %>
             <div class="grid-6">
               <br>
-                <%= link_to "ログイン", new_user_session_path, class: "post" %>
-                <%= link_to "新規登録",  new_user_registration_path, class: "post" %>
+                <%= link_to "ログイン", new_user_session_path, class: "post", class: "btn btn-default" %>
+                <%= link_to "新規登録",  new_user_registration_path, class: "post", class: "btn btn-default" %>
                 <br/>
             </div>
           <% end %>

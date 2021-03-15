@@ -2,7 +2,7 @@
 <div class='main'>
 
   <%# スライドショー %>
-  <div class = "slideshow">
+  <div class="slideshow">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -11,19 +11,19 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="assets/sample1.jpg" class="d-block w-100" alt="" width="200" height="300">
+          <img src="assets/sample1.png" class="d-block w-100" alt="" width="200" height="300">
           <div class="carousel-caption d-none d-md-block">
             <h5>First slide label</h5>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="assets/sample2.jpg" class="d-block w-100" alt="" width="200" height="300">
+          <img src="assets/sample2.png" class="d-block w-100" alt="" width="200" height="300">
           <div class="carousel-caption d-none d-md-block">
             <h5>First slide label</h5>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="assets/sample3.jpg" class="d-block w-100" alt="" width="200" height="300">
+          <img src="assets/sample3.png" class="d-block w-100" alt="" width="200" height="300">
           <div class="carousel-caption d-none d-md-block">
             <h5>First slide label</h5>
           </div>
@@ -43,17 +43,19 @@
 
   <%# レビューの表示 %>
   <div class="card">
-    <h1>最新の要約</h1>
-    <% @books.each do |book| %>
-      <div class="card__body">
-        <%= link_to book.title, book_path(book.id), class: :card__title %>
-      </div>
-      <%= link_to image_tag(book.image.variant(resize: '500x500'), class: :card__img ), book_path(book.id) %> 
-        <p class="card__summary">
-          <%= book.review %>
-        </p>
-      <%= link_to "by #{book.user.name}", user_path(book.user_id), class: :card__user %>
-    <% end %>
+    <h1 class="new-review">最新の要約</h1>
+      <ul class="card-list">
+        <% @books.each do |book| %>
+          <li class="card__body">
+            <p><%= link_to book.title, book_path(book.id), class: :card__title %>
+            </p>
+            <p><%= link_to image_tag(book.image, class: :card__img ), book_path(book.id) %>
+            </p>
+            <p><%= link_to "by #{book.user.name}", user_path(book.user_id), class: :card__user %>
+            </p>
+          </li>
+        <% end %>
+      </ul>
   </div>
   <%# レビューの表示 %>
 

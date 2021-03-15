@@ -1,0 +1,23 @@
+.card {
+  padding-top: 20px;
+}
+
+.new-review {
+  margin: 0 auto;
+}
+
+.card-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.card__body {
+  text-align: center;
+}
+
+.card__img {
+  height: 400px;
+  width: 200px;
+}

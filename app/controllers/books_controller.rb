@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, only:[:new, :edit, :destroy]
   before_action :set_book, only:[:show, :edit, :update, :destroy]
+  before_action :move_to_index, except: [:index, :show, :search]
   
   def index
     @books = Book.includes(:user).order("created_at DESC")
@@ -40,6 +41,10 @@ class BooksController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @books = Book.search(params[:keyword])
+  end
+
 
   private
   def book_params
@@ -48,6 +53,12 @@ class BooksController < ApplicationController
 
   def set_book
     @book = Book.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 
 end

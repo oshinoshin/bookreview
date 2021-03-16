@@ -1,0 +1,8 @@
+<%= render "shared/header" %> 
+
+<div class="contents row">
+  <h1 class="search-resalt">検索結果</h1>
+    <%= render partial: "book", locals: { book: @books} %> 
+</div>
+
+<%= render "shared/footer" %> 

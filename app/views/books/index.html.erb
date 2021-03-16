@@ -44,18 +44,7 @@
   <%# レビューの表示 %>
   <div class="card">
     <h1 class="new-review">最新の要約</h1>
-      <ul class="card-list">
-        <% @books.each do |book| %>
-          <li class="card__body">
-            <p><%= link_to book.title, book_path(book.id), class: :card__title %>
-            </p>
-            <p><%= link_to image_tag(book.image, class: :card__img ), book_path(book.id) %>
-            </p>
-            <p><%= link_to "by #{book.user.name}", user_path(book.user_id), class: :card__user %>
-            </p>
-          </li>
-        <% end %>
-      </ul>
+      <%= render partial: "book", locals: { book: @books} %> 
   </div>
   <%# レビューの表示 %>
 

@@ -1,0 +1,16 @@
+.header {
+  background-color: gray;
+  border: solid 2px aqua;
+  height: 10vh;
+}
+
+.header-left {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar-brand {
+  font-size: 20px;
+}

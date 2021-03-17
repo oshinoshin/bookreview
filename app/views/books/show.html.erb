@@ -1,15 +1,29 @@
-<%= @book.title%> 
-<br><%= image_tag @book.image.variant(resize: '500x500')%> <br/>
-<br><%= @book.review%> <br/>
+<%= render "shared/header" %> 
 
-<% if user_signed_in? && current_user.id == @book.user_id %>
-  <div class="book__manage">
-    <%= link_to "編集する", edit_book_path, class: :prototype__btn %>
-    <%= link_to "削除する", book_path(@book.id), method: :delete, class: :prototype__btn %>
+<div class="book__container">
+  <div class="contents">
+    <p><%= image_tag @book.image, class: :book__img %> 
+    </p>
+    <h2 class="book__title"><%= @book.title%></h2>
   </div>
-<% end %>
+  <div class="review-box">レビュー
+    <div class="box-inner">
+      <%= @book.review%>
+    </div>
+  </div>
 
-  <div class="container">
+
+  <%# ログインしていたら表示する %>
+  <% if user_signed_in? && current_user.id == @book.user_id %>
+    <div class="book__manage">
+      <%= link_to "編集する", edit_book_path, class: :book__btn %>
+      <%= link_to "削除する", book_path(@book.id), method: :delete, class: :book__btn %>
+    </div>
+  <% end %>
+  <%# ログインしていたら表示する %>
+
+  <%# コメントフォーム %>
+  <div class="comment-form">
     <% if user_signed_in? %>
       <%= form_with(model: [@book, @comment], local: true) do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
@@ -19,13 +33,19 @@
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
   </div>
+  <%# コメントフォーム %>
 
+  <%# コメント一覧 %>
   <div class="comments">
-      <h4>＜コメント一覧＞</h4>
+    <h4>コメント一覧</h4>
       <% @comments.each do |comment| %>
         <p>
-          <strong><%= link_to comment.user.name, user_path %>：</strong>
+          <strong><%= link_to comment.user.name, user_path(comment.user_id) %>：</strong>
           <%= comment.text %>
         </p>
       <% end %>
-    </div>
+  </div>
+  <%# コメント一覧 %>
+</div>
+
+<%= render "shared/footer" %> 

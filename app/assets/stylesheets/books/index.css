@@ -1,9 +1,23 @@
+.slide-show {
+  height: 35vh;
+  background-color: aqua;
+}
+
 .card {
   padding-top: 20px;
 }
 
+.contents {
+  display: flex;
+}
+
+.contents-left {
+  background-color: bisque;
+  width: 70vw;
+}
+
 .new-review {
-  margin: 0 auto;
+  background: linear-gradient(transparent 70%, #a8eaff 50%);
 }
 
 .card-list {
@@ -20,4 +34,9 @@
 .card__img {
   height: 400px;
   width: 200px;
+}
+
+.contents-right {
+  background-color: blueviolet;
+  width: 30vw;
 }

@@ -4,7 +4,8 @@ class BooksController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   
   def index
-    @books = Book.includes(:user).order("created_at DESC")
+    @books = Book.includes(:user)
+    @books = Book.page(params[:page]).per(4).order("created_at DESC")
   end
 
   def new

@@ -10,10 +10,9 @@
         <div class="header__bar row">
           <% if user_signed_in? %>
             <div class="user_nav grid-6">
-              <span><%= current_user.name %>
                 <ul class="user__info">
                   <li>
-                    <%= link_to "マイページ", user_path(current_user.id),
+                    <%= link_to current_user.name, user_path(current_user.id),
                     class: "btn btn-default" %>
                     <%= link_to "ログアウト", destroy_user_session_path, method: :delete  ,class: "btn btn-default"%>
                   </li>

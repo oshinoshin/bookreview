@@ -11,8 +11,10 @@
       <div class="card">
         <h1 class="new-review">最新の要約</h1>
           <%= render partial: "book", locals: { book: @books} %> 
+          <%= paginate @books %>
       </div>
     </div>
+
     <%# レビューの表示 %>
 
     <%# ランキングの表示 %>

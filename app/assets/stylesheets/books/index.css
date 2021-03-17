@@ -18,6 +18,8 @@
 
 .new-review {
   background: linear-gradient(transparent 70%, #a8eaff 50%);
+  margin: 0 auto;
+  width: 80%;
 }
 
 .card-list {
@@ -32,8 +34,8 @@
 }
 
 .card__img {
-  height: 400px;
-  width: 200px;
+  height: 300px;
+  width: 220px;
 }
 
 .contents-right {

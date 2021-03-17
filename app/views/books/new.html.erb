@@ -1,7 +1,4 @@
-<div class="contents row">
-  <div class="container">
-    <h3>投稿する</h3>
-    <%# 部分テンプレートでフォームを表示する %>
-      <%= render partial: "form" ,locals: { book: @book } %>
-  </div>
+<div class="new-container">
+  <%# 部分テンプレートでフォームを表示する %>
+   <%= render partial: "form" ,locals: { book: @book } %>
 </div>

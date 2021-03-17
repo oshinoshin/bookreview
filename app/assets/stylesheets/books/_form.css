@@ -1,0 +1,46 @@
+.form-box {
+  width: 350px;
+  margin: 60px auto 0;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+}
+
+.form-box-inner {
+  padding: 20px 26px;
+}
+
+.form-title{
+  font-weight: 700;
+  font-size: 30px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+}
+
+.field label{
+  font-weight: 700;
+  font-size: 13px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+}
+
+.field input[type="text"],[type=""]{
+  border-style: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 31px;
+  border: 1px solid #a6a6a6;
+  box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+  border-radius: 3px;
+  padding: 0 7px;
+}
+
+.field__review {
+  border-style: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 250px;
+  border: 1px solid #a6a6a6;
+  box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+  border-radius: 3px;
+  padding: 0 7px;
+}

@@ -1,53 +1,28 @@
 <%= render "shared/header" %> 
-<div class='main'>
 
   <%# スライドショー %>
-  <div class="slideshow">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  <div class="slide-show">
+  </div>
+  <%# スライドショー %>
+
+  <div class="contents">
+    <%# レビューの表示 %>
+    <div class="contents-left">
+      <div class="card">
+        <h1 class="new-review">最新の要約</h1>
+          <%= render partial: "book", locals: { book: @books} %> 
+          <%= paginate @books %>
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="assets/sample1.png" class="d-block w-100" alt="" width="200" height="300">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="assets/sample2.png" class="d-block w-100" alt="" width="200" height="300">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="assets/sample3.png" class="d-block w-100" alt="" width="200" height="300">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-  </div>
-  <%# スライドショー %>
 
-  <%# レビューの表示 %>
-  <div class="card">
-    <h1 class="new-review">最新の要約</h1>
-      <%= render partial: "book", locals: { book: @books} %> 
-  </div>
-  <%# レビューの表示 %>
+    <%# レビューの表示 %>
 
-</div>
+    <%# ランキングの表示 %>
+    <div class="contents-right">
+      <h3>今週の要約ランキング</h3>
+    </div>
+    <%# ランキングの表示 %>
+  </div>
+
 <%= render "shared/footer" %> 
 

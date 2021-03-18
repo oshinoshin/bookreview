@@ -1,7 +1,10 @@
-<div class="contents row">
-  <div class="container">
-    <h3>編集する</h3>
+<%= render "shared/header" %> 
+
+<div class="contents-row">
+  <div class="edit-contents">
       <%= render partial: "form" ,locals: { book: @book } %>
-  </div>
+    </div>
 </div>
+
+<%= render "shared/footer" %> 
 

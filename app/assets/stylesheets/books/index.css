@@ -1,3 +1,4 @@
+/* スライドショー */
 .cp_cssslider {
 	height: 300px;
 	overflow: hidden;
@@ -71,6 +72,7 @@
 	transform: translateX(0);
 	}
 }
+/* スライドショー */
 
 .card {
   padding-top: 20px;
@@ -110,4 +112,5 @@
 .contents-right {
   background-color: blueviolet;
   width: 30vw;
+
 }

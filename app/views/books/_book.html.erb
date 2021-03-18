@@ -7,6 +7,12 @@
       </p>
       <p><%= link_to "by #{book.user.name}", user_path(book.user_id), class: :card__user %>
       </p>
+        <% if current_user.already_favorited?(book) %>
+          <%= link_to 'いいねを外す', book_favorite_path(book, [:id]), method: :delete %>  
+        <% else %>
+          <%= link_to 'いいね', book_favorites_path(book), method: :past %> 
+        <% end %>
+        <%= book.favorites.count %>
     </li>
   <% end %>
 </ul>

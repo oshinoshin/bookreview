@@ -21,12 +21,21 @@
           <%= paginate @books %>
       </div>
     </div>
-
     <%# レビューの表示 %>
 
     <%# ランキングの表示 %>
     <div class="contents-right">
       <h3>今週の要約ランキング</h3>
+      <% @random.each do |book| %>
+        <ul class="card-list">
+          <li class="card__body">
+            <p><%= link_to book.title, book_path(book.id), class: :card__title %>
+            </p>
+            <p><%= link_to image_tag(book.image, class: :card__img ), book_path(book.id) %>
+            </p>
+          </li>
+        </ul>
+      <% end %>
     </div>
     <%# ランキングの表示 %>
   </div>

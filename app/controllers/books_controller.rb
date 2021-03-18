@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.includes(:user)
     @books = Book.page(params[:page]).per(4).order("created_at DESC")
+    @random = Book.order("RAND()").limit(3)
   end
 
   def new

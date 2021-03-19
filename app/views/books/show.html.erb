@@ -8,11 +8,16 @@
         </p>
       </div>
       <div class="book__center-content">
-        <h3 class="review-box">レビュー</h3>
+        <h3 class="review-box">
+          <span class ="new-review-title">レビュー</span>
+        </h3>
           <div class="box-inner">
             <%= @book.review%>
           </div>
       </div>
+      <%# ランキングの表示 %>
+      <%= render partial: "ranking", locals: { book: @books} %> 
+      <%# ランキングの表示 %>
     </div>
 
   <%# いいね機能 %>
@@ -38,7 +43,7 @@
   <%# ログインしていたら表示する %>
 
   <%# コメントフォーム %>
-  <div class="comment-form">
+  <div class="show-comment-form">
     <% if user_signed_in? %>
       <%= form_with(model: [@book, @comment], local: true) do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2", class: :form %>
@@ -64,11 +69,7 @@
   </div>
   <%# コメントフォーム %>
 
-  <%# ランキングの表示
-      <div class="book__right-content">
-        <h3>今週の要約ランキング</h3>
-      </div>
-  ランキングの表示 %>
+ 
 </div>
 
 <%= render "shared/footer" %> 

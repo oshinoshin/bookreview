@@ -28,25 +28,7 @@
     <%# レビューの表示 %>
 
     <%# ランキングの表示 %>
-    <div class="contents-right">
-      <div class="card">
-        <h1 class="new-review">
-          <div class="review-title">
-            <span class="new-review-title">オススメの要約</span>
-          </div>
-        </h1>
-        <% @random.each do |book| %>
-          <ul class="card-list">
-            <li class="card__body">
-              <p><%= link_to book.title, book_path(book.id), class: :card__title %>
-              </p>
-              <p><%= link_to image_tag(book.image, class: :card__img ), book_path(book.id) %>
-              </p>
-            </li>
-          </ul>
-        <% end %>
-        </div>
-    </div>
+    <%= render partial: "ranking", locals: { book: @books} %> 
     <%# ランキングの表示 %>
   </div>
 

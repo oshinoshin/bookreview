@@ -83,7 +83,6 @@
 }
 
 .contents-left {
-  background-color: bisque;
   width: 70vw;
 }
 
@@ -94,7 +93,6 @@
 .new-review-title {
 	box-shadow: 0 -9px 0 0 #dcecf8 inset;
 }
-
 
 .card-list {
   list-style: none;
@@ -113,7 +111,5 @@
 }
 
 .contents-right {
-  background-color: blueviolet;
   width: 30vw;
-
 }

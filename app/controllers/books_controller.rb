@@ -25,6 +25,7 @@ class BooksController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @book.comments.includes(:user)
+    @random = Book.order("RAND()").limit(2)
   end
 
   def edit

@@ -1,0 +1,30 @@
+.review-title {
+  text-align: center;
+}
+
+.new-review-title {
+	box-shadow: 0 -9px 0 0 #dcecf8 inset;
+}
+
+
+.card-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.card__body {
+  text-align: center;
+}
+
+.contents-right {
+  width: 30vw;
+  height: 90vh;
+  background-color: #f5f5f5;
+}
+
+.ranking__card__img {
+  height: 200px;
+  width: 120px;
+}

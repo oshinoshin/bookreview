@@ -16,26 +16,36 @@
     <%# レビューの表示 %>
     <div class="contents-left">
       <div class="card">
-        <h1 class="new-review">最新の要約</h1>
-          <%= render partial: "book", locals: { book: @books} %> 
-          <%= paginate @books %>
+        <h1 class="new-review">
+          <div class="review-title">
+            <span class="new-review-title">最新の要約</span>
+          </div>
+        </h1>
+        <%= render partial: "book", locals: { book: @books} %> 
+        <%= paginate @books %>
       </div>
     </div>
     <%# レビューの表示 %>
 
     <%# ランキングの表示 %>
     <div class="contents-right">
-      <h3>今週の要約ランキング</h3>
-      <% @random.each do |book| %>
-        <ul class="card-list">
-          <li class="card__body">
-            <p><%= link_to book.title, book_path(book.id), class: :card__title %>
-            </p>
-            <p><%= link_to image_tag(book.image, class: :card__img ), book_path(book.id) %>
-            </p>
-          </li>
-        </ul>
-      <% end %>
+      <div class="card">
+        <h1 class="new-review">
+          <div class="review-title">
+            <span class="new-review-title">オススメの要約</span>
+          </div>
+        </h1>
+        <% @random.each do |book| %>
+          <ul class="card-list">
+            <li class="card__body">
+              <p><%= link_to book.title, book_path(book.id), class: :card__title %>
+              </p>
+              <p><%= link_to image_tag(book.image, class: :card__img ), book_path(book.id) %>
+              </p>
+            </li>
+          </ul>
+        <% end %>
+        </div>
     </div>
     <%# ランキングの表示 %>
   </div>

@@ -87,11 +87,14 @@
   width: 70vw;
 }
 
-.new-review {
-  background: linear-gradient(transparent 70%, #a8eaff 50%);
-  margin: 0 auto;
-  width: 80%;
+.review-title {
+  text-align: center;
 }
+
+.new-review-title {
+	box-shadow: 0 -9px 0 0 #dcecf8 inset;
+}
+
 
 .card-list {
   list-style: none;

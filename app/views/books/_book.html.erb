@@ -7,16 +7,20 @@
       </p>
       <p><%= link_to "by #{book.user.name}", user_path(book.user_id), class: :card__user %>
       </p>
+
+      <% if user_signed_in? %>
         <% if current_user.already_favorited?(book) %>
-          <%= link_to book_favorite_path(book, [:id]), method: :delete do %>  
-          <i class="fas fa-thumbs-up"></i> 
-          <% end %>
-        <% else %>
-          <%= link_to book_favorites_path(book), method: :past do %>
+          <%= link_to book_favorite_path(book, [:id]), method: :delete do %>
+          <i class="fas fa-thumbs-up"></i>
+          <% end %> 
+        <% else %> 
+          <%= link_to book_favorites_path(book), method: :post do %> 
           <i class="far fa-thumbs-up"></i>
-          <% end %>
-        <% end %>
-        <%= book.favorites.count %>
+          <% end %> 
+        <% end %> 
+        <%= book.favorites.count %> 
+      <% end %>
+        
     </li>
   <% end %>
 </ul>

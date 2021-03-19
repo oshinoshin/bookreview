@@ -19,7 +19,7 @@
 .book__img {
   height: 300px;
   width: 220px;
-  box-shadow: 4px 4px 10px rgba(0 0 0 / 20%);
+  /* box-shadow: 4px 4px 10px rgb(0 0 0 / 20%); */
   /* padding-left: 60px; */
 }
 

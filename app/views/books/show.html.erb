@@ -21,16 +21,18 @@
     </div>
 
   <%# いいね機能 %>
-  <% if current_user.already_favorited?(@book) %>
-    <%= link_to book_favorite_path(@book, [:id]), method: :delete do %>
-      <i class="fas fa-thumbs-up"></i>
+  <% if user_signed_in? %>
+    <% if current_user.already_favorited?(@book) %>
+      <%= link_to book_favorite_path(@book, [:id]), method: :delete do %>
+        <i class="fas fa-thumbs-up"></i>
+      <% end %>
+    <% else %>
+      <%= link_to book_favorites_path(@book), method: :past do %> 
+        <i class="far fa-thumbs-up"></i>
+      <% end %>
     <% end %>
-  <% else %>
-    <%= link_to book_favorites_path(@book), method: :past do %> 
-      <i class="far fa-thumbs-up"></i>
-    <% end %>
+    <%= @book.favorites.count %>
   <% end %>
-  <%= @book.favorites.count %>
   <%# いいね機能 %>
 
   <%# ログインしていたら表示する %>

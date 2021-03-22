@@ -96,3 +96,15 @@ password: test1111
 ### Association
 - belongs_to :book
 - belongs_to :user
+
+
+## favorite テーブル
+
+| Column     | Type      | Options                    |
+| ---------- | --------- | -------------------------- |
+| user       | reference | foreign_key: true          |
+| book       | reference | foreign_key: true          |
+
+### Association
+- belongs_to :book
+- belongs_to :user

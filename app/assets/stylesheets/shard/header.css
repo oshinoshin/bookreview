@@ -6,8 +6,6 @@
   align-items: center;
 }
 
-
-
 .lists {
   display: flex;
   align-items: center;
@@ -86,3 +84,5 @@
   cursor: pointer;
   background: #f0c14b;
 }
+
+

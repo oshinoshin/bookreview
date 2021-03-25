@@ -3,6 +3,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @name = @user.name
     @books = @user.books
-    # @user = Kaminari.paginate_array(@books.user_id).page(params[:page]).per(4)
+    @books = Book.page(params[:page]).per(4).order("created_at DESC")
   end
 end

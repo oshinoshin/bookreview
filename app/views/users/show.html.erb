@@ -6,7 +6,10 @@
 
 <%# 部分テンプレートを使用する %>
    <%= render partial: "books/book", locals: { book: @books} %> 
+
+   <%= paginate @books %> 
 <%# 部分テンプレートを使用する %>
-<%# <%= paginate @user %> 
+
+
 
 <%= render "shared/footer" %> 

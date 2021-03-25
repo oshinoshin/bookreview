@@ -2,6 +2,7 @@ class Book < ApplicationRecord
  
   with_options presence: true do
     validates :title
+    validates :image
     validates :review
   end
 

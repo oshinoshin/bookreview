@@ -13,5 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.pagination {
+  width: 10vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
  @import "font-awesome-sprockets";
  @import "font-awesome";

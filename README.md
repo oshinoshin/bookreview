@@ -20,8 +20,8 @@
 
 # テスト用アカウント
 
-email:    test@test.com
-password: test1111
+email:    test@test.com  
+password: test1111  
 
 
 # 利用方法
@@ -40,6 +40,7 @@ password: test1111
 ![](https://i.gyazo.com/0e40730931085600b312c15f471bd096.gif "comments")
 
 一覧画面右上の投稿検索フォームから本の要約を検索できる
+![](https://i.gyazo.com/3237b96bf27eeadaec2ec2e7dacee782.gif "search")
 
 
 # 課題解決

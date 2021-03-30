@@ -20,11 +20,6 @@
 
 # テスト用アカウント
 
-## Basic認証
-ID:   shinya
-pass: 0420
-
-## テスト用アカウント
 email:    test@test.com
 password: test1111
 
@@ -33,6 +28,7 @@ password: test1111
 
 トップページから新規登録・ログイン
 一覧画面に戻る
+![](https://i.gyazo.com/d8dcec8f675cd2c0adbe57d39eef66ce.gif "registration")
 
 投稿するボタンをクリック→投稿フォームを記入し投稿
 投稿完了後は一覧画面に戻る

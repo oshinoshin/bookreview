@@ -1,4 +1,5 @@
 # BOOKREVIEW
+![](Bookreview.png)
 
 
 # アプリケーション概要
@@ -26,7 +27,7 @@ password: test1111
 
 # 利用方法
 
-トップページから新規登録・ログイン  
+- トップページから新規登録・ログイン  
 - 一覧画面に戻る  
 ![](https://i.gyazo.com/d8dcec8f675cd2c0adbe57d39eef66ce.gif "registration")
 

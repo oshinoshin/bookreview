@@ -1,5 +1,5 @@
 # BOOKREVIEW
-![](https://i.gyazo.com/12402ee96e5352583ece700cafd51a2f.gif "BOOKREVIEW")
+![](https://i.gyazo.com/12402ee96e5352583ece700cafd51a2f.gif "readme")
 
 
 # アプリケーション概要
@@ -38,7 +38,7 @@ password: test1111
 - 一覧画面から１つの投稿を選択→投稿詳細画面に遷移する  
 - 投稿者本人であれば投稿の編集・削除が可能になる  
 - ログインしていれば投稿に関してコメントすることができる  
-![](https://i.gyazo.com/0e40730931085600b312c15f471bd096.gif "comments")
+![](https://i.gyazo.com/0e40730931085600b312c15f471bd096.gif "readme-comments")
 
 - 一覧画面右上の投稿検索フォームから本の要約を検索できる
 ![](https://i.gyazo.com/3237b96bf27eeadaec2ec2e7dacee782.gif "search")

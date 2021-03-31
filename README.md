@@ -1,5 +1,5 @@
 # BOOKREVIEW
-![](https://i.gyazo.com/12402ee96e5352583ece700cafd51a2f.gif "readme")
+[![Image from Gyazo](https://i.gyazo.com/12402ee96e5352583ece700cafd51a2f.gif)](https://gyazo.com/12402ee96e5352583ece700cafd51a2f)
 
 
 # アプリケーション概要

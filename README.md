@@ -1,5 +1,5 @@
 # BOOKREVIEW
-![](Bookreview.png)
+![](https://i.gyazo.com/12402ee96e5352583ece700cafd51a2f.gif "BOOKREVIEW")
 
 
 # アプリケーション概要

@@ -1,5 +1,5 @@
 # 📕 BOOKREVIEW
-[![Image from Gyazo](https://i.gyazo.com/12402ee96e5352583ece700cafd51a2f.gif)](https://gyazo.com/12402ee96e5352583ece700cafd51a2f)
+[![Image from Gyazo](https://i.gyazo.com/a0d47b2fb6f1e6a211ffd0157b568136.gif)](https://gyazo.com/a0d47b2fb6f1e6a211ffd0157b568136)
 
 
 # 🗓 アプリケーション概要

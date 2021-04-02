@@ -1,6 +1,5 @@
 # 📕 BOOKREVIEW
-[![Image from Gyazo](https://i.gyazo.com/a0d47b2fb6f1e6a211ffd0157b568136.gif)](https://gyazo.com/a0d47b2fb6f1e6a211ffd0157b568136)
-
+![Image from Gyazo](https://github.com/oshinoshin/bookreview/blob/729d3c11e8e67da9f866f2be0aa937206621aa84/readme1.gif)
 
 # 🗓 アプリケーション概要
 

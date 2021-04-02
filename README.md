@@ -38,7 +38,7 @@ password: test1111
 - 一覧画面から１つの投稿を選択→投稿詳細画面に遷移する  
 - 投稿者本人であれば投稿の編集・削除が可能になる  
 - ログインしていれば投稿に関してコメントすることができる  
-![Image from Gyazo](https://github.com/oshinoshin/bookreview/commit/b7bd1df9e1bbb9011ca3cdf6f26153308d57fa0a?short_path=2afc8df#diff-2afc8df36491a0dd06e04a13d7588000466ec02f178266f03320a073d773e77d)
+![Image from Gyazo](https://github.com/oshinoshin/bookreview/blob/b7bd1df9e1bbb9011ca3cdf6f26153308d57fa0a/readme4.gif)
 
 - 一覧画面右上の投稿検索フォームから本の要約を検索できる
 [![Image from Gyazo](https://i.gyazo.com/3237b96bf27eeadaec2ec2e7dacee782.gif)](https://gyazo.com/3237b96bf27eeadaec2ec2e7dacee782)

@@ -60,18 +60,38 @@ RSpec.describe 'レビュー編集', type: :system do
       fill_in 'user_password', with: @book1.user.password
       find('input[name="commit"]').click
       expect(current_path).to eq(root_path)
+      # 本の詳細ページへ遷移する
+      visit book_path(@book1)
       # レビュー1に「編集」ボタンがあることを確認する
-
+      click_link '編集する'
       # 編集ページへ遷移する
       visit edit_book_path(@book1)
       # すでに投稿済みの内容がフォームに入っていることを確認する
+      # expect(
+      #   find('#book_image').value
+      # ).to eq(@book1.image)
+      expect(
+        find('#book_title').value
+      ).to eq(@book1.title)
+      expect(
+        find('#book_review').value
+      ).to eq(@book1.review)
       # 投稿内容を編集する
-      # 編集してもTweetモデルのカウントは変わらないことを確認する
-      # 編集完了画面に遷移したことを確認する
-      # 「更新が完了しました」の文字があることを確認する
+      fill_in 'book_title', with: "#{@book1.title}+編集したテキスト"
+      fill_in 'book_review', with: "#{@book1.review}+編集したテキスト"
+      image_path = Rails.root.join('public/images/output-image.png')
+      attach_file('book[image]', image_path, make_visible: true)
+      # 編集してもBookモデルのカウントは変わらないことを確認する
+      expect{
+        click_on '投稿する', match: :first
+      }.to change { Book.count }.by(0)
+
       # トップページに遷移する
+      visit root_path
       # トップページには先ほど変更した内容のツイートが存在することを確認する（画像）
+      expect(page).to have_selector('img')
       # トップページには先ほど変更した内容のツイートが存在することを確認する（テキスト）
+      expect(page).to have_content(@book1.title)
     end
   end
   context 'ツイート編集ができないとき' do

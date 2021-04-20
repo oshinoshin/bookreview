@@ -96,13 +96,24 @@ RSpec.describe 'レビュー編集', type: :system do
   end
   context 'ツイート編集ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿したツイートの編集画面には遷移できない' do
-      # ツイート1を投稿したユーザーでログインする
-      # ツイート2に「編集」ボタンがないことを確認する
+      # レビュー1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Eメール', with: @book1.user.email
+      fill_in 'user_password', with: @book1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # レビュー2の本の詳細ページへ遷移する
+      visit book_path(@book2)
+      # レビュー2に「編集」ボタンがないことを確認する
+      have_no_link '編集する', href: edit_book_path(@book2)
     end
     it 'ログインしていないとツイートの編集画面には遷移できない' do
       # トップページにいる
-      # ツイート1に「編集」ボタンがないことを確認する
-      # ツイート2に「編集」ボタンがないことを確認する
+      visit root_path
+      # レビュー1に「編集」ボタンがないことを確認する
+      have_no_link '編集する', href: edit_book_path(@book1)
+      # レビュー2に「編集」ボタンがないことを確認する
+      have_no_link '編集する', href: edit_book_path(@book2)
     end
   end
 end

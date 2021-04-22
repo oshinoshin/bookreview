@@ -117,3 +117,55 @@ RSpec.describe 'レビュー編集', type: :system do
     end
   end
 end
+
+RSpec.describe 'レビュー削除', type: :system do
+  before do
+    @book1 = FactoryBot.create(:book)
+    @book2 = FactoryBot.create(:book)
+  end
+  context 'レビュー削除ができるとき' do
+    it 'ログインしたユーザーは自分が投稿したツイートの削除ができる' do
+      # レビュー1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Eメール', with: @book1.user.email
+      fill_in 'user_password', with: @book1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # 本の詳細ページへ遷移する
+      visit book_path(@book1)
+      # 削除するとレコード数が１減ることを確認する
+      expect{
+        click_on '削除する', match: :first
+      }.to change { Book.count }.by(-1)
+      # トップページに遷移する
+      visit root_path
+      # トップページにはレビュー1の内容が存在しないことを確認する（画像）
+      expect(page).to have_no_selector('card__img')
+      # トップページにはレビュー1の内容が存在しないことを確認する（テキスト）
+      expect(page).to have_no_content('card__title')
+    end
+  end
+
+  context 'ツイート削除ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿したツイートの削除画面には遷移できない' do
+      # レビュー1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Eメール', with: @book1.user.email
+      fill_in 'user_password', with: @book1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # レビュー2の本の詳細ページへ遷移する
+      visit book_path(@book2)
+      # レビュー2に「編集」ボタンがないことを確認する
+      have_no_link '削除する', href: book_path(@book2)
+    end
+    it 'ログインしていないとツイートの編集画面には遷移できない' do
+      # トップページにいる
+      visit root_path
+      # レビュー1に「削除」ボタンがないことを確認する
+      have_no_link '削除する', href: book_path(@book1)
+      # レビュー2に「削除」ボタンがないことを確認する
+      have_no_link '削除する', href: book_path(@book2)
+    end
+  end
+end
